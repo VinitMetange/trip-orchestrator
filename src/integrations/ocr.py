@@ -211,3 +211,8 @@ class OCRClient:
             "items": [],
             "category": "Other",
         }
+
+
+
+# Alias for backwards compatibility
+GeGeminiOCRClient = OCRClient
