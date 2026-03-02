@@ -97,3 +97,20 @@ def get_request_logger(name: str) -> logging.LoggerAdapter:
             return msg, kwargs
 
     return CorrelationAdapter(logger, {})
+
+
+def setup_logger(name: str) -> logging.Logger:
+    """Set up and return a logger with structured JSON formatting."""
+    logger = logging.getLogger(name)
+    if not logger.handlers:
+        handler = logging.StreamHandler(sys.stdout)
+        handler.setFormatter(StructuredFormatter())
+        logger.addHandler(handler)
+        logger.setLevel(logging.INFO)
+    return logger
+
+
+def get_logger(name: str) -> logging.Logger:
+    """Alias for setup_logger for backwards compatibility."""
+    return setup_logger(name)
+
