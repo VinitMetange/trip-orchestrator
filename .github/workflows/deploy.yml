@@ -45,7 +45,7 @@ jobs:
           AWS_DEFAULT_REGION: ap-south-1
           AWS_ACCESS_KEY_ID: test
           AWS_SECRET_ACCESS_KEY: test
-                    PYTHONPATH: ${{ github.workspace }}
+                    PYTHONPATH:"${{ github.workspace }}"
 
       - name: Upload coverage
         uses: codecov/codecov-action@v4
